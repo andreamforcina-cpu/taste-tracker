@@ -1,52 +1,65 @@
 
-let favoriteTeam = "Sky";
-const sport = "Basketball";
-
-console.log("Favorite Team:", favoriteTeam);
-console.log("Sport:", sport);
+let myFavoriteFoods = ["Pizza", "Sushi", "Pasta", "Tacos", "Ice Cream"];
+console.log("My Favorite Foods:", myFavoriteFoods);
 
 
-let player = {
-    name: "Kahleah Copper",
-    position: "Guard",
-    pointsPerGame: 18.7
-};
-
-player.gamesPlayed = 25;
-console.log("Player Object:", player);
+let popularFoods = ["Burgers", "Fries", "Pizza", "Hot Dogs", "Salad", "Ice Cream", "Fried Chicken", "Sushi", "Tacos", "Steak"];
+console.log("Popular Foods:", popularFoods);
 
 
-let favFoods = ["Pizza", "Sushi", "Burger", "Pasta"];
-console.log("Favorite Foods:", favFoods);
+console.log("Looping through my favorite foods:");
+for (let i = 0; i < myFavoriteFoods.length; i++) {
+    console.log(myFavoriteFoods[i]);
+}
 
 
-favFoods.push("Ice Cream");
+function findSharedFoods(myFoods, popFoods) {
+    let shared = [];
+    for (let i = 0; i < myFoods.length; i++) {
+        if (popFoods.includes(myFoods[i])) {
+            shared.push(myFoods[i]);
+        }
+    }
+    return shared;
+}
+
+let sharedFoods = findSharedFoods(myFavoriteFoods, popularFoods);
+console.log("Shared favorite & popular foods:", sharedFoods);
 
 
-favFoods[1] = "Ramen";
+if (sharedFoods.length > 0) {
+    console.log("We have similar tastes!");
+} else {
+    console.log("Our tastes are totally unique!");
+}
 
-favFoods.pop();
 
-console.log("Updated Foods:", favFoods);
-console.log("Number of Foods:", favFoods.length);
+if (myFavoriteFoods.length > popularFoods.length) {
+    console.log("I have more favorite foods than the popular list!");
+} else if (myFavoriteFoods.length === popularFoods.length) {
+    console.log("Our food lists are the same length!");
+} else {
+    console.log("The popular food list is longer than mine.");
+}
+
+myFavoriteFoods.push("Ramen");
+console.log("Added a new favorite food:", myFavoriteFoods);
 
 
-function rateSong(songName, rating) {
+myFavoriteFoods.pop();
+console.log("After removing last food:", myFavoriteFoods);
+
+function rateFood(food, rating) {
     if (rating >= 4) {
-        console.log(songName + " is awesome!");
+        console.log(food + " is amazing!");
     } else if (rating >= 2) {
-        console.log(songName + " is okay.");
+        console.log(food + " is decent.");
     } else {
-        console.log(songName + " not my favorite.");
+        console.log(food + " is not for me.");
     }
 }
 
-rateSong("Blinding Lights", 5);
-rateSong("Song X", 2);
 
-
-let mySongs = ["Song A", "Song B", "Song C"];
-
-for (let i = 0; i < mySongs.length; i++) {
-    console.log(mySongs[i] + " is a jam!");
-}
+rateFood("Pizza", 5);
+rateFood("Salad", 2);
+rateFood("Hot Dogs", 1);
